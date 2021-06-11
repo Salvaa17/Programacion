@@ -11,10 +11,8 @@ public class Conexion {
     public static String USUARIO = "SYSTEM";        
     public static String CONTRASENA = "1234";
     
-    public Conexion (){
-        
-    }
-    public Connection getConexion(){
+    
+    public static Connection getConexion(){
         try{
             Class.forName(DRIVER);
             conexion = DriverManager.getConnection(URL_CONEXION , USUARIO, CONTRASENA);

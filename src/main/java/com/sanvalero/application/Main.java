@@ -5,7 +5,9 @@
  */
 package com.sanvalero.application;
 
+import com.sanvalero.dao.CiudadDAO;
 import com.sanvalero.dao.Conexion;
+import com.sanvalero.domain.Ciudad;
 
 /**
  *
@@ -17,8 +19,10 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Gestion gestion = new Gestion();
-        gestion.ejecutar();
+        CiudadDAO cd = new CiudadDAO();
+        for(Ciudad c : cd.getAll()){
+            System.out.println(c.getNombreCiudad());
+        }
     }
     
 }

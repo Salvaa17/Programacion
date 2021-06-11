@@ -1,35 +1,38 @@
 package com.sanvalero.domain;
 
 public class Ciudad {
-    private String Ciudad_ID;
-    private String Nombre_ciudad;
-    private String CCAA;
+    private int ciudadID;
+    private String nombreCiudad;
+    private String ccaa;
 
-    public Ciudad() {
+    public Ciudad(int ciudadID, String nombreCiudad, String ccaa) {
+        this.ciudadID = ciudadID;
+        this.nombreCiudad = nombreCiudad;
+        this.ccaa = ccaa;
     }
 
-    public String getCiudad_ID() {
-        return Ciudad_ID;
+    public int getCiudadID() {
+        return ciudadID;
     }
 
-    public void setCiudad_ID(String Ciudad_ID) {
-        this.Ciudad_ID = Ciudad_ID;
+    public void setCiudadID(int ciudadID) {
+        this.ciudadID = ciudadID;
     }
 
-    public String getNombre_ciudad() {
-        return Nombre_ciudad;
+    public String getNombreCiudad() {
+        return nombreCiudad;
     }
 
-    public void setNombre_ciudad(String Nombre_ciudad) {
-        this.Nombre_ciudad = Nombre_ciudad;
+    public void setNombreCiudad(String nombreCiudad) {
+        this.nombreCiudad = nombreCiudad;
     }
 
-    public String getCCAA() {
-        return CCAA;
+    public String getCcaa() {
+        return ccaa;
     }
 
-    public void setCCAA(String CCAA) {
-        this.CCAA = CCAA;
+    public void setCcaa(String ccaa) {
+        this.ccaa = ccaa;
     }
     
 }

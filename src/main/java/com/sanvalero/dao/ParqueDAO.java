@@ -13,6 +13,7 @@ public class ParqueDAO{
     private String consulta;
 
     public ParqueDAO() {
+        
     }
     
       public ArrayList<Parque> nombrarParques_Ciudad(String Ciudad) throws SQLException{
@@ -59,11 +60,5 @@ public class ParqueDAO{
           sentencia.setDouble(3, registro.getExtension());
           sentencia.executeUpdate();
           
-      }
-      public void deleteParque (Parque delete) throws SQLException{
-          consulta = "";
-          PreparedStatement sentencia = conexion.getConexion().prepareStatement(consulta);
-          sentencia.setString(1, delete.getNombre());
-          sentencia.executeUpdate();
       }
 }

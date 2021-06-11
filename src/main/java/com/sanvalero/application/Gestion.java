@@ -11,6 +11,7 @@ public class Gestion {
     
     private boolean salirPrograma;
     private final ParqueDAO parqueDAO;
+    private Scanner teclado;
 
 
     public Gestion() {
@@ -21,7 +22,6 @@ public class Gestion {
     }
 
     public void ejecutar() {
-        Scanner teclado = new Scanner(System.in);
         do {
             System.out.println("------------------------");
             System.out.println("Elige una opción:");
@@ -42,7 +42,6 @@ public class Gestion {
                 default:
                     System.out.println("Error desconocido");
             }
-
         } while (!salirPrograma);
     }
 
