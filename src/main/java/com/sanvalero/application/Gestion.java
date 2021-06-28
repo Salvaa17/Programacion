@@ -5,13 +5,14 @@ import com.sanvalero.dao.ParqueDAO;
 import com.sanvalero.domain.Parque;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Gestion {
     
     private boolean salirPrograma;
     private final ParqueDAO parqueDAO;
-    private Scanner teclado;
+    private Scanner sc;
 
 
     public Gestion() {
@@ -29,7 +30,7 @@ public class Gestion {
             System.out.println("0. Salir del programa");
             System.out.println("------------------------");
 
-            String opcion = teclado.nextLine();
+            String opcion = sc.nextLine();
 
             switch (opcion) {
                 case "1":
@@ -46,18 +47,38 @@ public class Gestion {
     }
 
     public void nombrarParques_Ciudad() {
-        Scanner teclado = new Scanner(System.in);
+        
         System.out.println("Selecciona la ciudad donde quieras listar los parques");
-        String ciudad = teclado.nextLine();
+        String ciudad = sc.nextLine();
         System.out.println("\nParques registrados en " + ciudad + ":");
         try {
-            ArrayList<Parque> listadoParques = parqueDAO.nombrarParques_Ciudad(ciudad);
+            List<Parque> listadoParques = parqueDAO.listarParqueCiudad(ciudad);
             for (Parque parque : listadoParques) {
                 System.out.println(parque);
-
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    public void añadirParque(){
+        try{
+                    Parque parque = new Parque();
+        
+        System.out.println("Nombre del parque");
+        String nombre = sc.nextLine();
+        
+        System.out.println("ID del parque");
+        int id = sc.nextInt();
+        
+        System.out.println("Extension del parque");
+        double extension = sc.nextDouble();
+            parque.setNombre(nombre);
+            parque.setParqueID(id);
+            parque.setExtension(extension);
+            parqueDAO.create(parque);
+            
+        }catch(Exception e){
+            System.out.println(e);
         }
     }
 }

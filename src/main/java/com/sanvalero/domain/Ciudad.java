@@ -5,6 +5,9 @@ public class Ciudad {
     private String nombreCiudad;
     private String ccaa;
 
+    public Ciudad(){
+        
+    }
     public Ciudad(int ciudadID, String nombreCiudad, String ccaa) {
         this.ciudadID = ciudadID;
         this.nombreCiudad = nombreCiudad;

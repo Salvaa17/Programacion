@@ -5,13 +5,11 @@
  */
 package com.sanvalero.dao;
 
-import static com.sanvalero.dao.ParqueDAO.conexion;
 import com.sanvalero.domain.Ciudad;
-import com.sanvalero.domain.Parque;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,17 +27,16 @@ public class CiudadDAO implements IDAO <Ciudad>{
     @Override
     public List <Ciudad> getAll() {
         List<Ciudad> ciudades = new ArrayList();
-        String sql = "SELECT * FROM Ciudad";
+        String consulta = "SELECT * FROM Ciudad WHERE ID = 3";
         try{
-         
-        Statement statement = conexion.createStatement();
-        ResultSet result = statement.executeQuery(sql);
+            PreparedStatement ps = conexion.prepareStatement(consulta);
+            ResultSet rs = ps.executeQuery();
 
-        while (result.next()) {
-            Ciudad ciudad = new Ciudad(result.getInt(1),result.getString(2),result.getString(3));
-            ciudades.add(ciudad);
+        while (rs.next()) {  
+        Ciudad ciudad = new Ciudad(rs.getInt(1),rs.getString(2),rs.getString(3));
+        ciudades.add(ciudad);
         }   
-        }catch (Exception e){
+        }catch (SQLException e){
             System.out.println(e);
         }
         return ciudades;

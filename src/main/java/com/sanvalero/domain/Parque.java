@@ -2,8 +2,14 @@ package com.sanvalero.domain;
 
 public class Parque {
     private String nombre;
-    private String ParqueID;
+    private int ParqueID;
     private double extension;
+
+    public Parque(String nombre, int ParqueID, double extension) {
+        this.nombre = nombre;
+        this.ParqueID = ParqueID;
+        this.extension = extension;
+    }
 
     public Parque() {
     }
@@ -16,11 +22,11 @@ public class Parque {
         this.nombre = nombre;
     }
 
-    public String getParqueID() {
+    public int getParqueID() {
         return ParqueID;
     }
 
-    public void setParqueID(String ParqueID) {
+    public void setParqueID(int ParqueID) {
         this.ParqueID = ParqueID;
     }
 
